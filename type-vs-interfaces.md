@@ -1,42 +1,42 @@
-Access Modifiers in TypeScript OOP
+Type Aliases vs Interfaces in TypeScript: What's the Difference?
 
 Introduction
 
-In TypeScript, access modifiers are used to control who can access the
-properties and methods of a class. They are an important part of Object-Oriented
-Programming because they help keep data organized and prevent unwanted changes.
-TypeScript mainly provides four modifiers: 'public', 'private', 'protected', and
-'readonly'.
+When working with TypeScript, developers often need to define the structure of
+data. For this purpose, TypeScript provides two useful features: 'type' aliases
+and 'interface'. At first, they may seem almost the same, but there are some
+differences that make each one useful in different situations.
 
-Understanding the Access Modifiers
+Key Differences
 
-1. Public
+1. Defining Object Structures
 
-The 'public' modifier is the most flexible one. It allows properties and methods
-to be accessed from anywhere. Developers do not need to write it explicitly
-because all class members are public by default.
+Both 'type' and 'interface' can describe the properties and their data types
+inside an object. For simple object structures, they work in a very similar way.
 
-2. Private
+2. Declaration Merging
 
-The 'private' modifier is used when a property or method should only be
-available inside its own class. It prevents direct access from outside the
-class, helping developers protect internal data.
+One major difference is that interfaces support declaration merging. This means
+developers can declare the same interface more than once, and TypeScript
+automatically combines their properties. However, type aliases do not support
+this feature.
 
-3. Protected
+3. Union and Intersection Types
 
-The 'protected' modifier is quite similar to 'private', but it also allows
-access from child classes. It becomes useful when working with inheritance and
-sharing functionality between related classes.
+Type aliases are more flexible when creating complex types. They support union
+and intersection types, allowing developers to combine multiple types or define
+a value that can have different possible types. Interfaces cannot directly
+define union types.
 
-4. Readonly
+4. Extending Types
 
-The 'readonly' modifier is used when a property should not be reassigned after
-initialization. Its value can be set when declaring the property or inside the
-constructor. This helps keep important values unchanged.
+Interfaces use the 'extends' keyword to inherit properties from other
+interfaces. Type aliases can achieve similar results using intersection types.
 
 Conclusion
 
-Each modifier has its own purpose in TypeScript. 'public' allows open access,
-'private' restricts access, 'protected' supports inheritance, and 'readonly'
-prevents reassignment. Choosing the right modifier makes code easier to manage
-and helps developers build more reliable applications.
+Both options are useful in TypeScript, but the choice depends on the situation.
+I would prefer 'interface' for defining object structures and reusable
+contracts. On the other hand, 'type' is a better choice for union types, tuples,
+and complex type definitions. Understanding these differences helps developers
+write cleaner and more maintainable code.
